@@ -4,6 +4,7 @@ import time
 from datetime import datetime, date
 import cv2, Leap, math, ctypes
 import numpy as np
+import keyboard
 
 counter = 0
 
@@ -88,6 +89,7 @@ def main():
         global f
         f = open(fileName + ' ' + fileDate + '.txt', 'w') # открываем для записи (writing)
         controller.add_listener(listener)
+
         try:
             a = input()
         except KeyboardInterrupt:
