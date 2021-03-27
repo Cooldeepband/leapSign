@@ -33,6 +33,17 @@ def run(controller):
                 imageDestR = 'C:/prgprojects/' + fileName + fileDate + '_R' + '.jpg'
                 cv2.imwrite(imageDestL, image1)
                 cv2.imwrite(imageDestR, image2)
+                f = open(fileName + ' ' + fileDate + '.txt', 'w')
+                for hand in frame.hands:
+                    handType = "Left Hand" if hand.is_left else "Right hand"
+                    f.write(handType + "Hand ID: " + str(hand.id) + "\n")
+                    f.write(" Palm Position: " + str(hand.palm_position) + "\n")
+                    f.write("Direction: " + hand.palm_direction + "\n")
+                    f.write("Pitch: " + hand.direction.pitch + "\n")
+                    f.write("Yaw: " + hand.direction.yaw + "\n")
+                    f.write("Roll: " + hand.direction.roll + "\n")
+                    f.write("\n")
+                f.close()
                 cv2.destroyAllWindows()
                 break
 
