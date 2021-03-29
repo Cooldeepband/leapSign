@@ -37,12 +37,17 @@ def run(controller):
                 for hand in frame.hands:
                     handType = "Left Hand" if hand.is_left else "Right hand"
                     f.write(handType + "Hand ID: " + str(hand.id) + "\n")
-                    f.write(" Palm Position: " + str(hand.palm_position) + "\n")
-                    f.write("Direction: " + hand.palm_direction + "\n")
-                    f.write("Pitch: " + hand.direction.pitch + "\n")
-                    f.write("Yaw: " + hand.direction.yaw + "\n")
-                    f.write("Roll: " + hand.direction.roll + "\n")
+                    f.write(" Palm Position: " \
+                        "x: " + str(hand.palm_position.x) + \
+                        "y: " + str(hand.palm_position.y) + \
+                        "z: " + str(hand.palm_position.z) + \
+                        "\n")
+                    f.write("Direction: " + str(hand.direction.x) + "\n")
+                    f.write("Pitch: " + str(hand.direction.pitch) + "\n")
+                    f.write("Yaw: " + str(hand.direction.yaw) + "\n")
+                    f.write("Roll: " + str(hand.direction.roll) + "\n")
                     f.write("\n")
+                    
                 f.close()
                 cv2.destroyAllWindows()
                 break
