@@ -3,7 +3,7 @@ import os, sys
 import cv2, Leap, math, ctypes
 import numpy as np
 import time
-from datetime import datetime, date\
+from datetime import datetime, date
 
 def make_npimage(image):
     #wrap image data in numpy array
@@ -42,12 +42,15 @@ def run(controller):
                         "y: " + str(hand.palm_position.y) + \
                         "z: " + str(hand.palm_position.z) + \
                         "\n")
-                    f.write("Direction: " + str(hand.direction.x) + "\n")
+                    f.write(" Palm Direction: " \
+                        "x: " + str(hand.direction.x) + \
+                        "y: " + str(hand.direction.y) + \
+                        "z: " + str(hand.direction.z) + \
+                        "\n")
                     f.write("Pitch: " + str(hand.direction.pitch) + "\n")
                     f.write("Yaw: " + str(hand.direction.yaw) + "\n")
                     f.write("Roll: " + str(hand.direction.roll) + "\n")
                     f.write("\n")
-                    
                 f.close()
                 cv2.destroyAllWindows()
                 break
